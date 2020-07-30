@@ -1,0 +1,17 @@
+appdirs==1.4.4
+astroid==2.4.2
+cssselect==1.1.0
+isort==4.3.21
+lazy-object-proxy==1.4.3
+lxml==4.5.2
+mccabe==0.6.1
+pyee==7.0.2
+pylint==2.5.3
+pyppeteer==0.2.2
+pyquery==1.4.1
+six==1.15.0
+toml==0.10.1
+tqdm==4.48.0
+urllib3==1.25.10
+websockets==8.1
+wrapt==1.12.1

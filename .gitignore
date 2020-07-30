@@ -109,6 +109,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+vj-to-loj
+solutions
 
 # Spyder project settings
 .spyderproject
