@@ -16,7 +16,7 @@ async def main():
     })
     username = input('User Id or E-mail: ')
     password = input('Password: ')
-    directory_path = 'solutions'
+    directory_path = input('LightOJ solutions directory: ')
     lightOj = LightOJ(username, password, browser)
     await lightOj.login()
     print(await lightOj.get_solve_list())
