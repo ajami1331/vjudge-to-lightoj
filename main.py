@@ -1,6 +1,7 @@
 import asyncio
 from pyppeteer import launch
 from lightoj import LightOJ
+from vjudge import Vjudge
 import os
 
 async def main():
@@ -14,12 +15,21 @@ async def main():
                 '--no-zygote',
                 '--single-process']
     })
-    username = input('User Id or E-mail: ')
-    password = input('Password: ')
-    directory_path = input('LightOJ solutions directory: ')
-    lightOj = LightOJ(username, password, browser)
+    print('Vjudge')
+    vjudge_username = input('User Id or E-mail: ')
+    vjudge_password = input('Password: ')
+    vjudge = Vjudge(vjudge_username, vjudge_password)
+    vjudge.downloadSubmissions()
+    print('LightOJ')
+    lightoj_username = input('User Id or E-mail: ')
+    lightoj_password = input('Password: ')
+    directory_path = 'solutions/LightOJ'
+    lightOj = LightOJ(lightoj_username, lightoj_password, browser)
     await lightOj.login()
     print(await lightOj.get_solve_list())
+    if not os.path.exists(directory_path):
+        print('No LightOJ solutions')
+        exit(0)
     for problem_number in os.listdir(directory_path):
         if lightOj.is_solved(problem_number):
             print(problem_number + " is already solved")

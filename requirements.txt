@@ -1,6 +1,9 @@
 appdirs==1.4.4
 astroid==2.4.2
+certifi==2020.6.20
+chardet==3.0.4
 cssselect==1.1.0
+idna==2.10
 isort==4.3.21
 lazy-object-proxy==1.4.3
 lxml==4.5.2
@@ -9,6 +12,7 @@ pyee==7.0.2
 pylint==2.5.3
 pyppeteer==0.2.2
 pyquery==1.4.1
+requests==2.24.0
 six==1.15.0
 toml==0.10.1
 tqdm==4.48.0
