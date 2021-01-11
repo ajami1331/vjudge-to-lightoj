@@ -112,7 +112,7 @@ venv.bak/
 vj-to-loj
 solutions
 zip-files
-
+test.py
 # Spyder project settings
 .spyderproject
 .spyproject

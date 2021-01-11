@@ -25,22 +25,27 @@ async def main():
     lightoj_password = input('Password: ')
     directory_path = 'solutions/LightOJ'
     lightOj = LightOJ(lightoj_username, lightoj_password, browser)
-    await lightOj.login()
-    print(await lightOj.get_solve_list())
+    logged_in = await lightOj.login()
+    if not logged_in:
+        print('login failed: lightoj')
+        exit(0)
+    # print(await lightOj.get_solve_list())
     if not os.path.exists(directory_path):
         print('No LightOJ solutions')
         exit(0)
     for problem_number in os.listdir(directory_path):
-        if lightOj.is_solved(problem_number):
-            print(problem_number + " is already solved")
-        else:
-            print(problem_number + " is not solved")
-            for file in os.listdir(directory_path + '/' + problem_number):
-                with open(directory_path + '/' + problem_number + '/' + file) as file:
-                    source_code = file.read()
-                    await lightOj.submit(problem_number, source_code)
+        # if lightOj.is_solved(problem_number):
+        #     print(problem_number + " is already solved")
+        # else:
+        #     print(problem_number + " is not solved")
+        for file in os.listdir(directory_path + '/' + problem_number):
+            with open(directory_path + '/' + problem_number + '/' + file) as file:
+                source_code = file.read()
+                extension = os.path.splitext(file.name)[1]
+                await lightOj.submit(problem_number, source_code, extension)
 
     print(await lightOj.get_solve_list())
+    await browser.close()
 
 if __name__ == "__main__":
     asyncio.get_event_loop().run_until_complete(main())
