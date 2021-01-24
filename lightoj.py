@@ -24,7 +24,6 @@ class LightOJ:
         return True
     async def login_github(self):
         page = await self.browser.newPage()
-        await page.goto('https://lightoj.com/auth/login')
         await page.goto('https://lightoj.com/api/v1/auth/social-redirect/github')
         print('logging in')
         await page.type('input[type="text"]', self.username)
