@@ -30,7 +30,7 @@ class Vjudge:
         time.sleep(2)
         os.mkdir(solutionsDir)
 
-    def __init__(self, username = "", password = ""):
+    def __init__(self, username: str, password: str):
         self.username = username
         self.password = password
         self.login()
@@ -50,7 +50,7 @@ class Vjudge:
             print(r.text)
 
     def downloadSubmissions(self):
-        if(self.loggedIn == False):
+        if not self.loggedIn:
             print("Sorry, can't download data. You are not logged into Vjudge.")
             return None
         if not os.path.exists('zip-files'):
